@@ -35,3 +35,5 @@ HD44780_ENABLE = no 		# Enable support for HD44780 based LCDs
 ENCODER_ENABLE = yes
 MOUSEKEY_ENABLE = yes
 KEY_LOCK_ENABLE = yes
+
+DEFAULT_FOLDER = dumbpad/v0x

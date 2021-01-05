@@ -35,7 +35,14 @@
 }
 #define UNUSED_PINS
 
-#ifdef RGBLIGHT_ENABLE
+/*#ifdef RGBLIGHT_ENABLE
 #define RGB_DI_PIN B6
-#define RGBLED_NUM 1
-#endif
+#define RGBLED_NUM 2
+#endif */
+
+#define RGB_DI_PIN B6
+#define RGBLIGHT_ANIMATIONS
+#define RGBLED_NUM 2
+#define RGBLIGHT_HUE_STEP 10
+#define RGBLIGHT_SAT_STEP 17
+#define RGBLIGHT_VAL_STEP 17
