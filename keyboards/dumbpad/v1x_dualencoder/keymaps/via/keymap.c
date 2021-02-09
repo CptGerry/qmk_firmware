@@ -64,78 +64,18 @@ void keyboard_post_init_user(void) {
 }
 
 void encoder_update_user(uint8_t index, bool clockwise) {
-    /*  Custom encoder control - handles CW/CCW turning of encoder
-     *  Default behavior:
-     *    left encoder:
-     *      main layer:
-     *         CW: move mouse right
-     *        CCW: move mouse left
-     *      other layers:
-     *         CW: = (equals/plus - increase slider in Adobe products)
-     *        CCW: - (minus/underscore - decrease slider in adobe products)
-     *    right encoder:
-     *      main layer:
-     *         CW: colume up
-     *        CCW: volume down
-     *      other layers:
-     *         CW: right arrow
-     *        CCW: left arrow
-     */
-        if (index == 0) {
-        switch (get_highest_layer(layer_state)) {
-            default:
-                // main layer - move mouse right (CW) and left (CCW)
-                if (clockwise) {
-                    tap_code(KC_VOLD);
-                } else {
-                    tap_code(KC_VOLU);
-                }
-                break;
-
-            case 1:
-                // other layers - =/+ (quals/plus) (CW) and -/_ (minus/underscore) (CCW)
-                if (clockwise) {
-                    tap_code(KC_VOLD);
-                } else {
-                    tap_code(KC_VOLU);
-                }
-                break;
-            case 2:
-                // other layers - =/+ (quals/plus) (CW) and -/_ (minus/underscore) (CCW)
-                if (clockwise) {
-                    tap_code(KC_MS_U);
-                } else {
-                    tap_code(KC_MS_D);
-                }
-                break;
+    if (index == 0) {
+        if (clockwise) {
+            tap_code(KC_VOLD);
+        } else {
+            tap_code(KC_VOLU);
         }
-    } else if (index == 1) {
-        switch (biton32(layer_state)) {
-            default:
-                // main layer - volume up (CW) and down (CCW)
-                if (clockwise) {
-                    tap_code(KC_VOLD);
-                } else {
-                    tap_code(KC_VOLU);
-                }
-                break;
-
-            case 1:
-                // other layers - right (CW) and left (CCW)
-                if (clockwise) {
-                    tap_code(KC_VOLD);
-                } else {
-                    tap_code(KC_VOLU);
-                }
-                break;
-            case 2:
-                // other layers - =/+ (quals/plus) (CW) and -/_ (minus/underscore) (CCW)
-                if (clockwise) {
-                    tap_code(KC_MS_L);
-                } else {
-                    tap_code(KC_MS_R);
-                }
-                break;
+    }
+    else if (index == 1) {
+        if (clockwise) {
+            tap_code(KC_PGUP);
+        } else {
+            tap_code(KC_PGDN);
         }
     }
 }

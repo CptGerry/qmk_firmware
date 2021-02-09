@@ -19,8 +19,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define DEVICE_VER      0x0010
-#define DESCRIPTION     4x4 macro/numpad with two rotary encoders
+#define VENDOR_ID       0xFEED
+#define PRODUCT_ID      0x0912
+#define DEVICE_VER      0x0001
+#define MANUFACTURER    imchipwood
+#define PRODUCT         dualencoder
+#define DESCRIPTION     4x4 macro/numpad with rotary encoder
 
 /* Column/Row IO definitions - dualencoder version is true 4x4 */
 #define MATRIX_ROWS 4
@@ -28,13 +32,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_ROW_PINS { F4, F5, F6, F7 }
 #define MATRIX_COL_PINS { D7, E6, B4, B5 }
 
+#define DIODE_DIRECTION COL2ROW
+
 /* Dual rotary encoders */
 #define ENCODERS_PAD_A { B2, D0 }
 #define ENCODERS_PAD_B { D4, D1 }
 
 /* Onboard LEDs */
 #define LED_00 B6
-#define LED_01 B3
+#define LED_01 B1
+#define LED_02 B3
 
 /* Bootmagic - hold down rotary encoder pushbutton while plugging in to enter bootloader */
 #define BOOTMAGIC_LITE_ROW 3
